@@ -19,24 +19,28 @@ public class App
 {
     public static void main( String[] args ) throws IOException
     {
-        /*
-        System.out.println( "Leer la imagen" );
-        Thumbnails.of(new File("prueba.jpg"))
-                .size(600, 400)
-                .toFile(new File("600x400.jpg"));
-        System.out.println( "Terminado" );
-        */
         
         Path start = FileSystems.getDefault().getPath("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS");
 		Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
+                    int photos=1;
 			@Override
 			public FileVisitResult visitFile(Path file,
 					BasicFileAttributes attrs) throws IOException {
+                            
+                            
 				if (file.toString().toLowerCase().endsWith(".jpg")) {
-					System.out.println(file);
+					//System.out.println(file);
+                                        //System.out.println(file.getFileName());
+                                        //System.out.println(file.getParent());
+                                        photos++;
+                                        Thumbnails.of(new File(file.toUri()))
+                                        .size(800, 600)
+                                        .toFile(new File(file.getParent()+"\\800x600-"+photos+".jpg"));
 				}
+                                System.out.println(photos);
 				return FileVisitResult.CONTINUE;
 			}
 		});
+                
     }
 }
