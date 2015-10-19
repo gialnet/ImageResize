@@ -22,6 +22,12 @@ public class App
         
         Path start = FileSystems.getDefault().getPath("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS");
         
+        //PrintFiles pf = new PrintFiles();
+       
+        //Files.walkFileTree(start, pf);
+        
+        
+                
 		Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
                     int photos=1;
 			@Override
@@ -30,30 +36,22 @@ public class App
                             
 
                         File f=null;
-
-                        // Crear un directorio
-                        if (attrs.isDirectory())
-                        {
-
-                          f = new File(file.getParent()+"\\800x600");
-                          f.mkdirs();
-                          f=null;
-                        }
                             
-                            // if (file.toString().toLowerCase().endsWith(".jpg")) {
-			if (file.toString().toLowerCase().contains("600x400")) {
+                        if (file.toString().toLowerCase().endsWith(".jpg")) {
                                     
                                 //System.out.println(file);
                                 //System.out.println(file.getFileName());
                                 //System.out.println(file.getParent());
                                 photos++;
-                                f = new File(file.toUri());
-                                f.delete();
-                                /*
+                                //f = new File(file.toUri());
+                                //f.delete();
+                                //System.out.println(file.getParent().getFileName());
+                                
+                                
                                 Thumbnails.of(new File(file.toUri()))
                                 .size(800, 600)
-                                .toFile(new File(file.getParent()+"\\800x600-"+photos+".jpg"));
-                                */ 
+                                .toFile(new File("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS en 800x600\\"+file.getParent().getFileName()+"\\800x600-"+photos+".jpg"));
+                                
                         }
                         
                         System.out.println(photos);

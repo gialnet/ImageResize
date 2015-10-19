@@ -5,6 +5,7 @@
  */
 package es.redmoon.imageresize;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import static java.nio.file.FileVisitResult.CONTINUE;
@@ -39,7 +40,11 @@ public class PrintFiles
     @Override
     public FileVisitResult postVisitDirectory(Path dir,
                                           IOException exc) {
-        System.out.format("Directory: %s%n", dir);
+        System.out.format("Directory: %s%n", dir.getFileName());
+        //"C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS"
+        File f = new File("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS en 800x600\\"+dir.getFileName());
+        f.mkdirs();
+        //f.delete();
         return CONTINUE;
     }
 
