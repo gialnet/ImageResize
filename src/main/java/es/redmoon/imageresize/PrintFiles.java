@@ -42,7 +42,7 @@ public class PrintFiles
                                           IOException exc) {
         System.out.format("Directory: %s%n", dir.getFileName());
         //"C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS"
-        File f = new File("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS en 800x600\\"+dir.getFileName());
+        File f = new File("C:\\Users\\Usuario\\Pictures\\ALQUILERES en 800x600\\"+dir.getFileName());
         f.mkdirs();
         //f.delete();
         return CONTINUE;

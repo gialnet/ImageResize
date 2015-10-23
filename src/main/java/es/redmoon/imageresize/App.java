@@ -20,10 +20,9 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         
-        Path start = FileSystems.getDefault().getPath("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS");
+        Path start = FileSystems.getDefault().getPath("C:\\Users\\Usuario\\Pictures\\ALQUILERES");
         
         //PrintFiles pf = new PrintFiles();
-       
         //Files.walkFileTree(start, pf);
         
         
@@ -50,7 +49,7 @@ public class App
                                 
                                 Thumbnails.of(new File(file.toUri()))
                                 .size(800, 600)
-                                .toFile(new File("C:\\Users\\Usuario\\Pictures\\CASAS Y PISOS en 800x600\\"+file.getParent().getFileName()+"\\800x600-"+photos+".jpg"));
+                                .toFile(new File("C:\\Users\\Usuario\\Pictures\\ALQUILERES en 800x600\\"+file.getParent().getFileName()+"\\800x600-"+photos+".jpg"));
                                 
                         }
                         
